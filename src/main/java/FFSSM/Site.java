@@ -23,20 +23,13 @@ public class Site
 	
 		private String details;
 
-	/**
-	 * Get the value of details
-	 *
-	 * @return the value of details
-	 */
+	
+	
 	public String getDetails() {
 		return details;
 	}
 
-	/**
-	 * Set the value of details
-	 *
-	 * @param details new value of details
-	 */
+
 	public void setDetails(String details) {
 		this.details = details;
 	}
