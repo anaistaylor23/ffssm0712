@@ -17,19 +17,21 @@ public class Plongee {
 	public LocalDate date;
 
 	public int profondeur;
+        private Set<Plongeur> palanquee;
 
 	public int duree;
-        public ArrayList<Plongeur> ListePlongeur = new ArrayList<Plongeur>();
+  
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;
 		this.chefDePalanquee = chefDePalanquee;
 		this.date = date;
 		this.profondeur = profondeur;
 		this.duree = duree;
+                palanquee= new HashSet<>();
 	}
 
 	public void ajouteParticipant(Plongeur participant) {
-                ListePlongeur.add(participant);
+                palanquee.add(participant);
 	}
 
 	public LocalDate getDate() {
@@ -38,12 +40,13 @@ public class Plongee {
 
 	
 	public boolean estConforme() {
-            if (ListePlongeur.size()==maListeLicence);
-                return true;
-        } 
-        else {
-            return false;
+            for(Plongeur p : palanquee){
+                if(!p.derniereLicence().estValide(date)){
+          
+                return false;
+            } 
+        return true;
         }
-	}
+	
 
 
